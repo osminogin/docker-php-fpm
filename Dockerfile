@@ -1,5 +1,5 @@
 FROM debian:latest
-MAINTAINER Vlafimir Osintsev <oc@co.ru>
+MAINTAINER Vladimir Osintsev <oc@co.ru>
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y install \
