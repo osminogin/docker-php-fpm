@@ -23,4 +23,4 @@ RUN mkdir -p /srv/www && \
 EXPOSE 9000
 VOLUME /srv/www
 
-CMD php5-fpm --nodaemonize 
+CMD ["php5-fpm", "--nodaemonize"]
