@@ -15,6 +15,7 @@ RUN apt-get update && apt-get -y install \
 	php5-fpm
 
 RUN sed -i '/^listen /c listen = 0.0.0.0:9000' /etc/php5/fpm/pool.d/www.conf
+RUN sed -i '/^cgi.fix_pathinfo /c cgi.fix_pathinfo = 0;' /etc/php5/fpm/pool.d/www.conf
 RUN ln -sf /dev/stderr /var/log/php5-fpm.log
 
 RUN mkdir -p /srv/www && \
