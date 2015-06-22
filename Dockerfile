@@ -2,6 +2,8 @@ FROM debian:latest
 MAINTAINER Vladimir Osintsev <oc@co.ru>
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV PHP_FPM_CONF /etc/php5/fpm/pool.d/www.conf
+
 RUN apt-get update && apt-get -y install \
 	php5 \
 	php-pear \
@@ -14,13 +16,12 @@ RUN apt-get update && apt-get -y install \
 	php5-xmlrpc \
 	php5-fpm
 
-RUN sed -i '/^listen /c listen = 0.0.0.0:9000' /etc/php5/fpm/pool.d/www.conf
-RUN sed -i '/^cgi.fix_pathinfo /c cgi.fix_pathinfo = 0;' /etc/php5/fpm/pool.d/www.conf
-RUN ln -sf /dev/stderr /var/log/php5-fpm.log
-
-RUN mkdir -p /srv/www && \
+RUN sed -i '/^listen /c listen = 0.0.0.0:9000' $PHP_FPM_CONF && \
+    sed -i '/^cgi.fix_pathinfo /c cgi.fix_pathinfo = 0;' $PHP_FPM_CONF && \
+    mkdir -p /srv/www && \
     echo "<?php phpinfo(); ?>" > /srv/www/index.php && \
-    chown -R www-data:www-data /srv/www
+    chown -R www-data:www-data /srv/www && \
+    ln -sf /dev/stdout /var/log/php5-fpm.log 
 
 EXPOSE 9000
 VOLUME /srv/www
