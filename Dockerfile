@@ -2,8 +2,6 @@ FROM debian:latest
 MAINTAINER Vladimir Osintsev <oc@co.ru>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV PHP_FPM_CONF /etc/php5/fpm/pool.d/www.conf
-
 RUN apt-get update && apt-get -y install --no-install-recommends \
 	php5 \
 	php-pear \
@@ -18,8 +16,7 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN sed -i '/^listen /c listen = 0.0.0.0:9000' $PHP_FPM_CONF && \
-    sed -i '/^cgi.fix_pathinfo /c cgi.fix_pathinfo = 0;' $PHP_FPM_CONF && \
+RUN sed -i '/^listen /c listen = 0.0.0.0:9000' /etc/php5/fpm/pool.d/www.conf && \
     mkdir -p /srv/www && \
     echo "<?php phpinfo(); ?>" > /srv/www/index.php && \
     chown -R www-data:www-data /srv/www && \
