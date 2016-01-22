@@ -3,6 +3,7 @@ MAINTAINER Vladimir Osintsev <oc@co.ru>
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y install --no-install-recommends \
+	ca-certificates \
 	php5 \
 	php-pear \
 	php5-gd \
