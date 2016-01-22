@@ -17,7 +17,10 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN sed -i '/^listen /c listen = 0.0.0.0:9000' /etc/php5/fpm/pool.d/www.conf && \
+RUN sed -ri \
+		-e '/^listen /c listen = 0.0.0.0:9000' \
+		-e '/^;catch_workers_output /s/^;//' \
+		/etc/php5/fpm/pool.d/www.conf && \
     mkdir -p /srv/www && \
     echo "<?php phpinfo(); ?>" > /srv/www/index.php && \
     chown -R www-data:www-data /srv/www && \
