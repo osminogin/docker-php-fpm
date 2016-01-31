@@ -1,13 +1,13 @@
 # docker-php-fpm
 
-Generic PHP-FPM container for your web apps.
+Generic PHP-FPM container for your web apps. Just add frontend web server.
 
 Please star this project on Docker Hub: https://hub.docker.com/r/osminogin/php-fpm/
 
 ## Getting started
 
 ```bash
-docker pull osminogin/php-fpm
+docker run --name php-fpm osminogin/php-fpm
 ```
 
 ## Example
