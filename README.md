@@ -1,4 +1,4 @@
-# docker-php-fpm
+# docker-php-fpm [![](https://images.microbadger.com/badges/image/osminogin/php-fpm.svg)](https://microbadger.com/images/osminogin/php-fpm)
 
 Generic PHP-FPM container for your web apps. Just add frontend web server.
 
