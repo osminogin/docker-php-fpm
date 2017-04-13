@@ -1,4 +1,4 @@
-# docker-php-fpm [![](https://images.microbadger.com/badges/image/osminogin/php-fpm.svg)](https://microbadger.com/images/osminogin/php-fpm)
+# docker-php-fpm [![](https://img.shields.io/docker/stars/osminogin/php-fpm.svg)](https://hub.docker.com/r/osminogin/php-fpm) [![](https://images.microbadger.com/badges/image/osminogin/php-fpm.svg)](https://microbadger.com/images/osminogin/php-fpm)
 
 Generic PHP-FPM container for your web apps. 
 

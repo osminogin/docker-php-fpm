@@ -22,7 +22,7 @@ RUN sed -i '/^listen /c listen = 0.0.0.0:9000' /etc/php5/fpm/pool.d/www.conf && 
     mkdir -p /srv/www && \
     echo "<?php phpinfo(); ?>" > /srv/www/index.php && \
     chown -R www-data:www-data /srv/www && \
-    ln -sf /dev/stdout /var/log/php5-fpm.log 
+    ln -sf /dev/stdout /var/log/php5-fpm.log
 
 EXPOSE 9000
 VOLUME /srv/www
