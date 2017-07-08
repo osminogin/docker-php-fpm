@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:jessie
 MAINTAINER Vladimir Osintsev <oc@co.ru>
 
 ENV DEBIAN_FRONTEND noninteractive
