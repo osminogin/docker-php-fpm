@@ -6,16 +6,39 @@
 
 Just link with your favorite frontend web server and you ready for production use.
 
-:star2: Star this project on Docker Hub: https://hub.docker.com/r/osminogin/php-fpm/ :star2:
+Star this project on Docker Hub :star2: https://hub.docker.com/r/osminogin/php-fpm/
 
-## Running
+
+## Getting started
+
+
+### Installation
+
+Automated builds of the image are available on [Docker Hub](https://hub.docker.com/r/osminogin/php-fpm/) and is the recommended method of installation.
+
+```bash
+docker pull osminogin/php-fpm
+```
+
+Alternatively you can build the image yourself.
+
+```bash
+docker build -t php-fpm github.com/osminogin/docker-php-fpm
+```
+
+
+### Quickstart
 
 ```bash
 docker run --name webapp -v /var/www:/var/www:ro osminogin/php-fpm
 ```
-Recommended to mount web application root inside container with same path (to avoid confusion).
 
-**Warning**: Always link this container to web server directly and not expose 9000 port for security reasons.
+Recommended to mount web application root inside container with same paths (to avoid confusion).
+
+:exclamation:**Warning**:exclamation:
+
+Always link this container to web server directly and not expose 9000 port for security reasons.
+
 
 ## Unit file for systemd
 
